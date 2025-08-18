@@ -2,9 +2,15 @@
 import { AlignEndHorizontal, AlignHorizontalDistributeCenter, ArrowLeftToLine, BookOpenText, ClipboardMinus, ClipboardPenLine, User, UserCog } from "lucide-react"
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 const UserSidebar = () => {
     const [isOpen, setIsOpen] = useState<boolean>(true);
+    const pathname = usePathname();
+    const linkClasses = (path: string) =>
+    `flex gap-2 m-2 ml-4 mb-4 items-center cursor-pointer 
+     ${pathname === path ? "text-purple-600 font-semibold" : "text-gray-700 hover:text-purple-400"}`;
+
     const toggleSidebar = (): void => {
     setIsOpen((prev) => !prev);
     };
@@ -16,43 +22,43 @@ const UserSidebar = () => {
                 {/* <ArrowLeftToLine onClick={toggleSidebar} className="bg-white rounded-2xl p-1" /> */}
             </div>
             <div className="user-sidebar-item">
-                <Link href='/overview'>
+                <Link href='/overview' className={linkClasses("/overview")}>
                 <div className="overview flex gap-2 m-2 ml-4 mb-4">
                     <ClipboardMinus size={18} />
                     <p>Overview</p>
                 </div>
                 </Link>
-                <Link href='/jobposting'>
+                <Link href='/jobposting' className={linkClasses("/jobposting")}>
                 <div className="job-posting flex gap-2 m-2 ml-4 mb-4">
                     <ClipboardPenLine size={18} />
                     <p>Job Posting</p>
                 </div>
                 </Link>
-                <Link href='/assessment'>
+                <Link href='/assessment' className={linkClasses("/assessment")}>
                 <div className="assessment flex gap-2 m-2 ml-4 mb-4">
                     <BookOpenText size={18} />
                     <p>Assessment</p>
                 </div>
                 </Link>
-                <Link href='/interviewplan'>
+                <Link href='/interviewplan' className={linkClasses("/interviewplan")}>
                 <div className="interview-plan flex gap-2 m-2 ml-4 mb-4">
                     <User size={18} />
                     <p>Interview Plan</p>
                 </div>
                 </Link>
-                <Link href='/recruiter'>
+                <Link href='/recruiter'  className={linkClasses("/recruiter")}>
                 <div className="recruiter flex gap-2 m-2 ml-4 mb-4">
                     <UserCog size={18} />
                     <p>Recruiter</p>
                 </div>
                 </Link>
-                <Link href='/candidates'>
+                <Link href='/candidates' className={linkClasses("/candidates")}>
                 <div className="candidates flex gap-2 m-2 ml-4 mb-4">
                     <AlignHorizontalDistributeCenter size={18} />
                     <p>Candidates</p>
                 </div>
                 </Link>
-                <Link href='/reporting'>
+                <Link href='/reporting' className={linkClasses("/reporting")}>
                 <div className="reporting flex gap-2 m-2 ml-4 mb-4">
                     <AlignEndHorizontal size={18} />
                     <p>Reporting</p>
