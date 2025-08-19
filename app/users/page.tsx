@@ -30,7 +30,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeftToLine, ArrowRightToLine, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeftToLine, ArrowRightToLine } from "lucide-react";
 import Topbar from "@/components/Topbar";
 import UserSidebar from "@/components/UserSidebar";
 
@@ -49,10 +49,10 @@ const Page = () => {
       {/* Toggle button → placed relative to sidebar */}
       <button
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        className={`absolute top-5 z-50 bg-white border rounded-full p-1 shadow-md hover:bg-gray-100 transition-all duration-300
+        className={`absolute top-5 z-50 bg-background border rounded-full p-1 shadow-md hover:bg-gray-100 transition-all duration-300
           ${isSidebarOpen ? "left-52 -ml-3" : "left-2 -ml-2"}`}
       >
-        {isSidebarOpen ? <ArrowLeftToLine size={18}  /> : <ArrowRightToLine size={18} />}
+        {isSidebarOpen ? <ArrowLeftToLine className='text-foreground'  size={18}  /> : <ArrowRightToLine className='text-foreground'  size={18} />}
       </button>
 
       {/* Right side: Topbar + content */}

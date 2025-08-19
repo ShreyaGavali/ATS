@@ -8,13 +8,13 @@ import { usePathname } from 'next/navigation';
 const NavigationPanel = () => {
     const pathname = usePathname();
     const linkClasses = (path: string) =>
-        pathname === path || pathname.startsWith(path + "/") ? "text-purple-600" : "text-gray-600";
+        pathname === path || pathname.startsWith(path + "/") ? "text-purple-600" : "text-foreground";
     const borderClasses = (path: string) =>
         pathname === path || pathname.startsWith(path + "/")
  ? "border-2 border-purple-500" : "border border-transparent";
     return (
-        <div className='w-18 h-screen bg-gray-100 flex align-middle flex-col '>
-            <div className="logo  bg-white w-13 h-11 mt-3 ml-2 rounded-2xl">
+        <div className='w-18 h-screen bg-background flex align-middle flex-col '>
+            <div className="logo  bg-background w-13 h-11 mt-3 ml-2 rounded-2xl">
                 <Image src={logoImg} alt="Logo" className="w-9 h-auto mb-6 ml-2.5 mt-0 flex justify-center align-middle p-1" />
             </div>
             <div className="navigation-item m-4">
