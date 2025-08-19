@@ -1,13 +1,3 @@
-
-
-// const page = () => {
-//   return (
-//     <div>overview page</div>
-//   )
-// }
-
-// export default page
-
 "use client";
 
 import { useState } from "react";
@@ -40,7 +30,7 @@ const Page = () => {
       <div className="flex flex-col flex-1">
         <Topbar />
         <div className="flex-1 p-4">
-          <h1 className="text-xl font-semibold">Overview</h1>
+          <h1 className="text-xl font-semibold">Leads</h1>
         </div>
       </div>
     </div>

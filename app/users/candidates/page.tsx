@@ -30,7 +30,7 @@ const Page = () => {
       <div className="flex flex-col flex-1">
         <Topbar />
         <div className="flex-1 p-4">
-          <h1 className="text-xl font-semibold">Candidates</h1>
+          <h1 className="text-xl font-semibold">Job Posting</h1>
         </div>
       </div>
     </div>

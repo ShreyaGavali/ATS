@@ -13,20 +13,20 @@ export default function Topbar() {
       </div>
 
       {/* ✅ Middle Section */}
-      <div className="flex items-center gap-4 flex-1 justify-center">
+      <div className="flex items-center flex-1 justify-between m-5">
         {/* Position Dropdown */}
-        <select className="px-3 py-2 border rounded-lg text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300">
+        <select className="w-60 ml-5 px-3 py-2 border-1 border-gray-300 rounded-2xl text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300">
           <option>Position</option>
           <option>Frontend Developer</option>
           <option>Backend Developer</option>
         </select>
 
         {/* Search Bar */}
-        <div className="relative">
+        <div className="relative w-60">
           <input
             type="text"
             placeholder="Search"
-            className="px-3 py-2 pl-4 pr-12 border rounded-lg text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
+            className=" mr-5 px-3 py-2 pl-4 pr-12 border-1 border-gray-300 rounded-2xl text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
           />
           {/* Shortcut Hint */}
           <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-gray-400 border rounded px-1">
@@ -42,13 +42,13 @@ export default function Topbar() {
         </button>
 
         {/* Icon Buttons */}
-        <button className="p-2 border rounded-lg hover:bg-gray-100">
+        <button className="p-2 border-2 border-gray-300  rounded-lg hover:bg-gray-200">
           <Bell size={18} />
         </button>
-        <button className="p-2 border rounded-lg hover:bg-gray-100">
+        <button className="p-2 border-2 border-gray-300  rounded-lg hover:bg-gray-200">
           <Moon size={18} />
         </button>
-        <button className="p-2 border rounded-lg hover:bg-gray-100">
+        <button className="p-2 border-2 border-gray-300 rounded-lg hover:bg-gray-200">
           <Settings size={18} />
         </button>
 
@@ -56,7 +56,7 @@ export default function Topbar() {
         <Image
           src={userImg} // replace with user image
           alt="User"
-          className="w-8 h-8 rounded-full border"
+          className="w-10 h-10 rounded-full border-2 border-gray-300  p-2"
         />
       </div>
     </div>
