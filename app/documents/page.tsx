@@ -29,7 +29,7 @@ const Page = () => {
       {/* Toggle button → placed relative to sidebar */}
       <button
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        className={`absolute top-5 z-50 bg-gray-200 border-gray-100 rounded-full p-1 shadow-md hover:bg-gray-100 transition-all duration-300
+        className={`absolute top-5 z-50 bg-gray-150 border-2 border-gray-300 rounded-full p-1 shadow-md hover:bg-gray-100 transition-all duration-300
           ${isSidebarOpen ? "left-52 -ml-3" : "left-2 -ml-2"}`}
       >
         {isSidebarOpen ? <ArrowLeftToLine className='text-foreground'  size={18}  /> : <ArrowRightToLine className='text-foreground'  size={18} />}

@@ -11,11 +11,11 @@ import {
 
 export const sidebarMenus = {
   home: [
-    { label: "Analytics Overview", href: "/", icon: ClipboardMinus },
-    { label: "Quick Start", href: "/quickstart", icon: AlignEndHorizontal },
-    { label: "Recent Activity", href: "/recentactivity", icon: AlignEndHorizontal },
-    { label: "Performance Matrix", href: "/performancemetrix", icon: AlignEndHorizontal },
-    { label: "Reports", href: "/reports", icon: AlignEndHorizontal },
+    { label: "Analytics Overview", href: "/home/overview", icon: ClipboardMinus },
+    { label: "Quick Start", href: "/home/quickstart", icon: AlignEndHorizontal },
+    { label: "Recent Activity", href: "/home/recentactivity", icon: AlignEndHorizontal },
+    { label: "Performance Matrix", href: "/home/performancemetrix", icon: AlignEndHorizontal },
+    { label: "Reports", href: "/home/reports", icon: AlignEndHorizontal },
   ],
   users: [
     { label: "Overview", href: "/users/overview", icon: ClipboardMinus },

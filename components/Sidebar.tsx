@@ -8,7 +8,7 @@ interface SidebarProps {
   items: {
     label: string;
     href?: string;
-    icon?: LucideIcon ;
+    icon?: LucideIcon;
     children?: { label: string; href: string }[];
   }[];
 }
@@ -26,11 +26,11 @@ const Sidebar = ({ items }: SidebarProps) => {
   const linkClasses = (path: string) =>
     `flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-colors
      ${pathname === path
-      ? "text-purple-600 font-semibold border-2 border-purple-500 rounded-2xl"
-      : "text-gray-700 hover:text-purple-600"}`;
+      ? "border-2 border-[#4b2aed] rounded-2xl"
+      : "text-gray-700"}`;
 
   return (
-    <div className="border-r border-gray-300 bg-panel text-foreground h-screen w-56 p-4">
+    <div className="border-r border-gray-300 bg-panel text-foreground h-screen w-58 p-4">
       <div className="flex justify-between items-center mb-6">
         <p className="font-bold text-foreground text-lg">ATS</p>
       </div>
@@ -51,8 +51,8 @@ const Sidebar = ({ items }: SidebarProps) => {
                 <div
                   className={`flex items-center gap-2 px-3 py-2 cursor-pointer rounded-2xl border-2 transition-all
                     ${isOpen || pathname.startsWith("/users/candidates")
-                      ? "text-purple-600 font-semibold border-purple-500"
-                      : "text-gray-700 border-transparent hover:border-purple-300 hover:text-purple-600"
+                      ? "font-semibold border-[#4b2aed]"
+                      : "text-gray-700 border-transparent"
                     }`}
                   onClick={() => toggleMenu(item.label)}
                 >
@@ -62,10 +62,10 @@ const Sidebar = ({ items }: SidebarProps) => {
               )}
 
               {/* Child dropdown */}
-              {item.children && isOpen && (
+              {/* {item.children && isOpen && (
                 <div className="ml-4 mt-1 flex flex-col relative">
-                  {/* Vertical line */}
-                  <div className="absolute top-2 left-2 h-[calc(100%-0.5rem)] border-l-2 border-purple-600"></div>
+                  
+                  <div className="absolute top-2 left-2 h-[calc(100%-0.5rem)] border-l-2 border-[#4b2aed]"></div>
 
                   {item.children.map((child) => (
                     <Link
@@ -73,10 +73,42 @@ const Sidebar = ({ items }: SidebarProps) => {
                       href={child.href}
                       className={`relative pl-6 py-1 text-sm transition-colors
                         ${pathname === child.href
-                          ? "text-purple-600 font-semibold"
-                          : "text-gray-400 hover:text-purple-600"}`}
+                          ? " font-semibold"
+                          : "text-gray-400"}`}
                     >
                       {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )} */}
+              {/* Child dropdown */}
+              {item.children && isOpen && (
+                <div className="ml-4 flex flex-col relative ">
+                  
+                  <div className="absolute top-2 left-0 h-10 border-l-2 border-[#4b2aed]"></div>
+
+                  {item.children.map((child, index) => (
+                    <Link
+                      key={child.label}
+                      href={child.href}
+                      className={`relative pl-8 py-1 text-sm flex items-center transition-colors
+          ${pathname === child.href
+                          ? "text-[#4b2aed] font-semibold"
+                          : "text-gray-400 hover:text-[#4b2aed]"}`}
+                    >
+                    
+                      <svg
+                        className="absolute left-0 top-1 w-7 h-7 text-[#4b2aed]"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <path d="M0 0 v12 q0 6 6 6 h12" />
+                      </svg>
+                      <div className="mt-2">
+                        {child.label}
+                      </div>
                     </Link>
                   ))}
                 </div>
