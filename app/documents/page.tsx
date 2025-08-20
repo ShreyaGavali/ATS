@@ -1,7 +1,10 @@
-
-// export default function SettingsPage() {
-//   return <h1>Seeting Page</h1>;
+// const page = () => {
+//   return (
+//     <div>Book text page</div>
+//   )
 // }
+
+// export default page
 
 "use client";
 
@@ -19,7 +22,7 @@ const Page = () => {
       {/* Sidebar (collapsible) */}
       {isSidebarOpen && (
         <div className="w-58 transition-all duration-300">
-          <Sidebar items={sidebarMenus.seeting} />
+          <Sidebar items={sidebarMenus.document} />
         </div>
       )}
 

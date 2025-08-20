@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Topbar from "@/components/Topbar";
-import UserSidebar from "@/components/UserSidebar";
+import Sidebar from "@/components/Sidebar";
+import { sidebarMenus } from "@/config/sidebarConfig";
 
 const Page = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -13,7 +14,7 @@ const Page = () => {
       {/* Sidebar (collapsible) */}
       {isSidebarOpen && (
         <div className="w-58 transition-all duration-300">
-          <UserSidebar />
+          <Sidebar items={sidebarMenus.users} />
         </div>
       )}
 

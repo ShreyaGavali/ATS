@@ -1,6 +1,6 @@
-
-// export default function SettingsPage() {
-//   return <h1>Seeting Page</h1>;
+// // app/users/page.tsx
+// export default function ClipboardlistPage() {
+//   return <h1>Clipboard List Page</h1>;
 // }
 
 "use client";
@@ -19,7 +19,7 @@ const Page = () => {
       {/* Sidebar (collapsible) */}
       {isSidebarOpen && (
         <div className="w-58 transition-all duration-300">
-          <Sidebar items={sidebarMenus.seeting} />
+          <Sidebar items={sidebarMenus.document2} />
         </div>
       )}
 

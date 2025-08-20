@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Topbar from "@/components/Topbar";
-import UserSidebar from "@/components/UserSidebar";
+import UserSidebar from "@/components/Sidebar";
 
 const Page = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
