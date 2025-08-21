@@ -17,11 +17,12 @@ const Page = () => {
   return (
     <div className="flex h-screen relative">
       {/* Sidebar (collapsible) */}
-      {isSidebarOpen && (
-        <div className="w-58 transition-all duration-300">
-          <Sidebar items={sidebarMenus.document2} />
-        </div>
-      )}
+      <div
+        className={`transition-all duration-300
+          ${isSidebarOpen ? "w-56" : "w-0"} overflow-hidden`}
+      >
+        <Sidebar items={sidebarMenus.document2} />
+      </div>
 
       {/* Toggle button → placed relative to sidebar */}
       <button

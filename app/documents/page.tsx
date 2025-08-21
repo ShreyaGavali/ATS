@@ -20,11 +20,12 @@ const Page = () => {
   return (
     <div className="flex h-screen relative">
       {/* Sidebar (collapsible) */}
-      {isSidebarOpen && (
-        <div className="w-58 transition-all duration-300">
-          <Sidebar items={sidebarMenus.document} />
-        </div>
-      )}
+      <div
+        className={`transition-all duration-300
+          ${isSidebarOpen ? "w-56" : "w-0"} overflow-hidden`}
+      >
+        <Sidebar items={sidebarMenus.document} />
+      </div>
 
       {/* Toggle button → placed relative to sidebar */}
       <button
@@ -32,7 +33,7 @@ const Page = () => {
         className={`absolute top-5 z-50 bg-gray-150 border-2 border-gray-300 rounded-full p-1 shadow-md hover:bg-gray-100 transition-all duration-300
           ${isSidebarOpen ? "left-53 -ml-0" : "left-2 -ml-5"}`}
       >
-        {isSidebarOpen ? <ArrowLeftToLine className='text-foreground'  size={18}  /> : <ArrowRightToLine className='text-foreground'  size={18} />}
+        {isSidebarOpen ? <ArrowLeftToLine className='text-foreground' size={18} /> : <ArrowRightToLine className='text-foreground' size={18} />}
       </button>
 
       {/* Right side: Topbar + content */}
