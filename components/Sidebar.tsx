@@ -26,19 +26,24 @@ const Sidebar = ({ items }: SidebarProps) => {
   const linkClasses = (path: string) =>
     `flex items-center gap-2 px-3 py-2 rounded-xl cursor-pointer transition-colors
      ${pathname === path
-      ? "border-2 border-[#4b2aed] rounded-2xl"
-      : "text-gray-700"}`;
+      ? "border-2 border-blue-500 rounded-2xl text-blue-500"
+      : "text-foreground"}`;
 
   return (
-    <div className="border-r border-gray-300 bg-panel text-foreground h-screen w-58 p-4">
+    <div className=" dark:border-gray-600 bg-panel shadow-sm h-screen w-58 p-4">
       <div className="flex justify-between items-center mb-6">
         <p className="font-bold text-foreground text-lg">ATS</p>
       </div>
 
-      <div className="flex flex-col space-y-1 text-foreground">
+      <div className="flex flex-col space-y-1">
         {items.map((item) => {
-          const isOpen = item.children && openMenus.includes(item.label);
+          // const isOpen = item.children && openMenus.includes(item.label);
+           const isChildActive =
+            item.children?.some((child) => pathname.startsWith(child.href)) ??
+            false;
 
+          const isOpen =
+            (item.children && openMenus.includes(item.label)) || isChildActive;
           return (
             <div key={item.label} className="relative">
               {/* Parent menu */}
@@ -52,7 +57,7 @@ const Sidebar = ({ items }: SidebarProps) => {
                   className={`flex items-center gap-2 px-3 py-2 cursor-pointer rounded-2xl border-2 transition-all
                     ${isOpen || pathname.startsWith("/users/candidates")
                       ? "font-semibold border-[#4b2aed]"
-                      : "text-gray-700 border-transparent"
+                      : "border-transparent"
                     }`}
                   onClick={() => toggleMenu(item.label)}
                 >
@@ -60,32 +65,10 @@ const Sidebar = ({ items }: SidebarProps) => {
                   {item.label}
                 </div>
               )}
-
-              {/* Child dropdown */}
-              {/* {item.children && isOpen && (
-                <div className="ml-4 mt-1 flex flex-col relative">
-                  
-                  <div className="absolute top-2 left-2 h-[calc(100%-0.5rem)] border-l-2 border-[#4b2aed]"></div>
-
-                  {item.children.map((child) => (
-                    <Link
-                      key={child.label}
-                      href={child.href}
-                      className={`relative pl-6 py-1 text-sm transition-colors
-                        ${pathname === child.href
-                          ? " font-semibold"
-                          : "text-gray-400"}`}
-                    >
-                      {child.label}
-                    </Link>
-                  ))}
-                </div>
-              )} */}
-              {/* Child dropdown */}
               {item.children && isOpen && (
                 <div className="ml-4 flex flex-col relative ">
                   
-                  <div className="absolute top-2 left-0 h-10 border-l-2 border-[#4b2aed]"></div>
+                  <div className="absolute top-2 left-0 h-10 border-l-2 text-[#4b2aed] border-[#4b2aed]"></div>
 
                   {item.children.map((child, index) => (
                     <Link
@@ -94,7 +77,7 @@ const Sidebar = ({ items }: SidebarProps) => {
                       className={`relative pl-8 py-1 text-sm flex items-center transition-colors
           ${pathname === child.href
                           ? "text-[#4b2aed] font-semibold"
-                          : "text-gray-400 hover:text-[#4b2aed]"}`}
+                          : "text-[#4b2aed] hover:text-[#4b2aed]"}`}
                     >
                     
                       <svg

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import NavigationPanel from "@/components/NavigationPanel"; // ✅ adjust path if needed
+import NavigationPanel from "@/components/NavigationPanel";
+import { ThemeProvider } from "next-themes"; // 👈 import ThemeProvider
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,19 +25,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning> 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex">
-          {/* ✅ Navigation panel stays fixed on all pages */}
-          <NavigationPanel />
-
-          {/* ✅ Main content */}
-          <main className="flex-1">{children}</main>
-        </div>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light" 
+          enableSystem={false}
+          value={{ light: "light", dark: "dark"}}
+        >
+          <div className="flex">
+            <NavigationPanel />
+            <main className="flex-1">{children}</main>
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-

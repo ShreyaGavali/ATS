@@ -3,48 +3,25 @@ import { Bell, Calendar, Moon, Search, Settings, Sparkles, Sun, User } from "luc
 import userImg from '../public/userImg.png';
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function Topbar() {
-  const [darkMode, setDarkMode] = useState(false);
+   const { theme, setTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-  //  Sync dark mode with <html> class
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+   
   return (
-    <div className="flex items-center justify-between px-6 py-3 bg-background border-b h-20">
+    <div className="flex items-center justify-between px-6 py-3 bg-topbar border-b h-20">
       {/* Left Section: Greeting + Date */}
-      <div>
+      <div className="ml-4">
         <p className="font-medium text-foreground">Hi, Sachin</p>
         <p className="text-xs text-foreground">24/07/2025</p>
       </div>
-
-      {/* Middle Section
-      <div className="flex items-center flex-1 justify-between m-5">
-        {/* Position Dropdown 
-        <select className="w-60 ml-5 px-3 py-2 border-1 border-gray-300 rounded-2xl text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300">
-          <option>Position</option>
-          <option>Frontend Developer</option>
-          <option>Backend Developer</option>
-        </select>
-
-        {/* Search Bar *
-        <div className="relative w-60">
-          <input
-            type="text"
-            placeholder="Search"
-            className=" mr-5 px-3 py-2 pl-4 pr-12 border-1 border-gray-300 rounded-2xl text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300"
-          />
-          {/* Shortcut Hint 
-          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-gray-400 border rounded px-1">
-            ⌘F
-          </span>
-        </div>
-      </div> */}
       <div className="flex gap-10">
       <div className="search flex border-2 border-gray-300 h-10 w-70 align-middle gap-2 rounded-2xl ">
          <Search className="mt-2 ml-2" />
@@ -62,31 +39,17 @@ export default function Topbar() {
         <button className="px-4 py-2 bg-black text-white rounded-lg text-sm font-medium hover:opacity-90">
           Upgrade
         </button>
-
-        {/* Icon Buttons */}
-        
-        {/* <button className="p-2 border-2 border-gray-300  rounded-lg hover:bg-gray-200">
-          <Moon size={18} />
-        </button> */}
-        <div className="flex items-center gap-3">
-        {/* Toggle Dark Mode */}
+       <div className="flex items-center gap-3">
         <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="p-2 border-2 border-gray-300 dark:border-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="p-2 border-2 border-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 "
         >
-          {darkMode ? <Sun size={18} /> : <Moon size={18} />}
+          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
         </button>
       </div>
         <button className="p-2 border-2 border-gray-300 rounded-lg hover:bg-gray-200">
           <Settings size={18} />
         </button>
-
-        {/* Avatar */}
-        {/* <Image
-          src={userImg} // replace with user image
-          alt="User"
-          className="w-10 h-10 text-foreground bg-background rounded-full border-2 border-gray-300  p-2"
-        /> */}
         <User className="w-10 h-10 text-foreground bg-background rounded-full border-2 border-gray-300  p-2" />
       </div>
       </div>

@@ -22,7 +22,7 @@ const Page = () => {
       <button
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         className={`absolute top-5 z-50 bg-gray-150 border-2 border-gray-300 rounded-full p-1 shadow-md hover:bg-gray-100 transition-all duration-300
-          ${isSidebarOpen ? "left-52 -ml-3" : "left-2 -ml-2"}`}
+          ${isSidebarOpen ? "left-53 -ml-0" : "left-2 -ml-5"}`}
       >
         {isSidebarOpen ? <ArrowLeftToLine className='text-foreground'  size={18}  /> : <ArrowRightToLine className='text-foreground'  size={18} />}
       </button>
@@ -30,7 +30,7 @@ const Page = () => {
       {/* Right side: Topbar + content */}
       <div className="flex flex-col flex-1">
         <Topbar />
-        <div className="flex-1 p-4">
+        <div className="flex-1 p-4 bg-main">
           <h1 className="text-xl font-semibold">Trash</h1>
         </div>
       </div>
